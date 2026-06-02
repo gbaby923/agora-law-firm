@@ -668,14 +668,21 @@ address {
   padding-left: 10px;
 }
 
-.practice-num {
-  font-family: var(--font-sans);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 2.5px;
+.practice-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   color: rgba(26, 32, 34, 0.32);
-  min-width: 26px;
-  transition: color var(--t-fast) var(--ease);
+  transition: color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  flex-shrink: 0;
+}
+
+.practice-icon-container svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.2px;
 }
 
 .practice-name {
@@ -696,7 +703,10 @@ address {
     color var(--t-fast) var(--ease);
 }
 
-.practice-link:hover .practice-num  { color: var(--copper); }
+.practice-link:hover .practice-icon-container {
+  color: var(--copper);
+  transform: scale(1.08);
+}
 .practice-link:hover .practice-name { color: var(--copper); }
 .practice-link:hover .practice-arrow {
   transform: translateX(8px);
