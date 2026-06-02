@@ -149,9 +149,9 @@ address {
 
 .nav-links a {
   font-family: var(--font-sans);
-  font-size: 10.5px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 2.5px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.88);
   transition: color var(--t-fast) var(--ease);
@@ -202,32 +202,39 @@ address {
 
 .btn-consult {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 10px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 12px 28px;
   white-space: nowrap;
-  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  background: transparent !important;
+  transition: 
+    border-color var(--t-fast) var(--ease),
+    letter-spacing var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease);
 }
 
 .btn-consult:hover {
-  background: var(--white);
-  color: var(--charcoal);
-  border-color: var(--white);
+  background: transparent !important;
+  color: var(--white) !important;
+  border-color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.18em;
 }
 
 #site-header.scrolled .btn-consult {
   color: var(--charcoal);
-  border-color: rgba(26, 32, 34, 0.4);
+  border-color: rgba(26, 32, 34, 0.25);
+  background: transparent !important;
 }
 
 #site-header.scrolled .btn-consult:hover {
-  background: var(--charcoal);
-  color: var(--white);
-  border-color: var(--charcoal);
+  background: transparent !important;
+  color: var(--charcoal) !important;
+  border-color: rgba(26, 32, 34, 0.95);
+  letter-spacing: 0.18em;
 }
 
 /* Mobile hamburger */
@@ -328,41 +335,53 @@ address {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    170deg,
-    rgba(8, 6, 4, 0.38) 0%,
-    rgba(8, 6, 4, 0.06) 42%,
-    rgba(8, 6, 4, 0.62) 100%
-  );
+  background: 
+    /* Radial dark gradient from bottom-left quadrant for legibility of the massive left-aligned text */
+    radial-gradient(circle at 10% 90%, rgba(18, 22, 23, 0.88) 0%, rgba(18, 22, 23, 0.45) 55%, rgba(18, 22, 23, 0) 100%),
+    /* Linear overlay for desaturating the skies and blending slate greens / deep charcoal */
+    linear-gradient(to top, rgba(20, 24, 25, 0.5) 0%, rgba(20, 24, 25, 0.1) 60%, rgba(32, 38, 38, 0.3) 100%);
+  backdrop-filter: grayscale(32%) contrast(108%) brightness(95%);
+  -webkit-backdrop-filter: grayscale(32%) contrast(108%) brightness(95%);
   pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 var(--gutter) 108px;
-  max-width: 860px;
+  padding: 0 var(--gutter) 118px;
+  max-width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 1025px) {
+  .hero-content {
+    max-width: 38%;
+  }
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(48px, 6vw, 84px);
+  font-size: clamp(72px, 11vw, 152px);
   font-weight: 300;
   color: var(--white);
-  line-height: 1.08;
-  letter-spacing: -0.5px;
-  margin-bottom: 22px;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
   animation: heroFadeUp var(--t-slow) var(--ease-out) 0.15s both;
 }
 
 .hero-subtitle {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 300;
   letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.80);
-  line-height: 1.9;
-  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 48px;
   animation: heroFadeUp var(--t-slow) var(--ease-out) 0.30s both;
 }
 
@@ -371,31 +390,48 @@ address {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
   color: var(--white);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-  padding-bottom: 6px;
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 16px 44px;
+  border-radius: 0;
+  white-space: nowrap;
+  transition: 
+    background var(--t-fast) var(--ease), 
+    border-color var(--t-fast) var(--ease), 
+    color var(--t-fast) var(--ease),
+    transform var(--t-fast) var(--ease);
   animation: heroFadeUp var(--t-slow) var(--ease-out) 0.48s both;
 }
 
 .hero-cta:hover {
-  color: var(--copper);
-  border-color: var(--copper);
+  background: var(--white);
+  color: var(--charcoal);
+  border-color: var(--white);
+  transform: translateY(-2px);
 }
 
 .hero-monogram {
+  display: none; /* Hide monogram for exact layout match */
+}
+
+.hero-sparkle {
   position: absolute;
   bottom: 56px;
   right: var(--gutter);
   z-index: 2;
-  width: 96px;
-  opacity: 0.22;
-  pointer-events: none;
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.9;
+  animation: heroSparklePulse 3s ease-in-out infinite alternate;
 }
 
-.hero-monogram img { width: 100%; }
+@keyframes heroSparklePulse {
+  0% { transform: scale(0.9) rotate(0deg); opacity: 0.65; }
+  100% { transform: scale(1.1) rotate(6deg); opacity: 0.95; }
+}
 
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(28px); }
@@ -1112,7 +1148,8 @@ address {
   }
 
   .hero-subtitle br { display: none; }
-  .hero-monogram { width: 70px; right: var(--gutter); bottom: 40px; }
+  .hero-monogram { display: none; }
+  .hero-sparkle { width: 20px; height: 20px; right: var(--gutter); bottom: 40px; }
 
   /* Attorney */
   .attorney-photo-wrap { max-width: 320px; }
