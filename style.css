@@ -102,9 +102,9 @@ address {
 }
 
 #site-header.scrolled {
-  background: rgba(247, 245, 242, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(247, 245, 242, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 1px 0 rgba(26, 32, 34, 0.06);
 }
 
@@ -120,7 +120,23 @@ address {
 }
 
 /* Logo */
-.nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: 
+    opacity var(--t-med) var(--ease),
+    transform var(--t-med) var(--ease);
+}
+
+#site-header.scrolled .nav-logo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
 .logo-img {
   height: 38px;
@@ -418,17 +434,18 @@ address {
   right: var(--gutter);
   z-index: 2;
   width: 96px;
-  opacity: 0.22;
+  opacity: 0.38;
   pointer-events: none;
   transition: opacity var(--t-fast) var(--ease);
 }
 
 .hero-monogram:hover {
-  opacity: 0.45;
+  opacity: 0.65;
 }
 
 .hero-monogram img {
   width: 100%;
+  filter: brightness(0) invert(1);
 }
 
 @keyframes heroFadeUp {
