@@ -30,7 +30,7 @@
       </nav>
       <div class="nav-right">
         <a href="tel:4245422422" class="nav-phone">424-542-2422</a>
-        <a href="#contact" class="btn-consult">REQUEST A CONSULTATION</a>
+        <a href="#case-evaluation" class="btn-consult">REQUEST A CONSULTATION</a>
       </div>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span>
@@ -46,10 +46,62 @@
     <div class="hero-content">
       <h1 class="hero-title">Agora Law Firm</h1>
       <p class="hero-subtitle">Discreet counsel for discerning clients in Agoura Hills<br>and the greater Los Angeles region.</p>
-      <a href="#contact" class="hero-cta">REQUEST A CONSULTATION</a>
+      <a href="#case-evaluation" class="hero-cta">REQUEST A CONSULTATION</a>
     </div>
     <div class="hero-monogram" aria-hidden="true">
       <img src="ag-monogram-hero-transparent.svg" alt="">
+    </div>
+  </section>
+
+  <!-- ═══ CASE EVALUATION ═══ -->
+  <section id="case-evaluation" aria-labelledby="evaluation-heading">
+    <div class="section-container evaluation-wrap">
+      <div class="section-label-col" aria-hidden="true">
+        <span class="section-label">EVALUATION</span>
+        <div class="label-line"></div>
+      </div>
+      <div class="section-content-col">
+        <h2 id="evaluation-heading" class="section-headline">Get a Case Review</h2>
+        <form class="evaluation-form" id="evaluation-form" action="#" method="POST">
+          <div class="form-grid">
+            <div class="form-col-left">
+              <div class="form-group">
+                <label for="eval-name" class="sr-only">Full Name</label>
+                <input type="text" id="eval-name" name="name" placeholder="Full Name*" required>
+              </div>
+              <div class="form-group">
+                <label for="eval-phone" class="sr-only">Phone Number</label>
+                <input type="tel" id="eval-phone" name="phone" placeholder="Phone*" required>
+              </div>
+              <div class="form-group">
+                <label for="eval-email" class="sr-only">Email Address</label>
+                <input type="email" id="eval-email" name="email" placeholder="Email*" required>
+              </div>
+            </div>
+            <div class="form-col-right">
+              <div class="form-group">
+                <label for="eval-type" class="sr-only">Type of Consultation</label>
+                <div class="select-wrapper">
+                  <select id="eval-type" name="consultation_type" required>
+                    <option value="" disabled selected hidden>Type of Consultation*</option>
+                    <option value="Estate Planning">Estate Planning</option>
+                    <option value="Trust Administration">Trust Administration</option>
+                    <option value="Asset Protection">Asset Protection</option>
+                    <option value="Business & Succession Planning">Business &amp; Succession Planning</option>
+                    <option value="Other">Other Inquiry</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="eval-details" class="sr-only">Describe your situation</label>
+                <textarea id="eval-details" name="details" placeholder="Describe your legal needs or situation*" rows="3" required></textarea>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit-eval">DO I HAVE A CASE?</button>
+          <p class="form-disclaimer">By providing a telephone number and submitting this form, you are consenting to be contacted by SMS text message. Message &amp; data rates may apply. Reply STOP to opt out of further messaging.</p>
+        </form>
+      </div>
     </div>
   </section>
 

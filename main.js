@@ -117,6 +117,10 @@
 
   /* ── INTERSECTION OBSERVER — REVEAL ANIMATIONS ── */
   const revealTargets = [
+    // Case Evaluation
+    { selector: '#case-evaluation .section-headline', delay: '' },
+    { selector: '#case-evaluation .evaluation-form', delay: 'reveal-delay-1' },
+
     // Approach
     { selector: '#approach .section-headline', delay: '' },
     { selector: '#approach .section-body', delay: 'reveal-delay-1' },
@@ -140,6 +144,7 @@
     { selector: '.contact-cta-col', delay: 'reveal-delay-1' },
 
     // Section labels
+    { selector: '#case-evaluation .section-label-col', delay: '' },
     { selector: '#approach .section-label-col', delay: '' },
     { selector: '#practice-areas .section-label-col', delay: '' },
     { selector: '#contact .section-label-col', delay: '' },
