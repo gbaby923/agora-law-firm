@@ -132,6 +132,10 @@
     { selector: '.practice-item:nth-child(4)', delay: 'reveal-delay-3' },
     { selector: '#practice-areas .copper-link', delay: 'reveal-delay-4' },
 
+    // Testimonials
+    { selector: '.testimonial-card:nth-child(1)', delay: '' },
+    { selector: '.testimonial-card:nth-child(2)', delay: 'reveal-delay-1' },
+
     // Attorney
     { selector: '.attorney-photo-wrap', delay: '' },
     { selector: '.attorney-name', delay: '' },
@@ -147,6 +151,7 @@
     { selector: '#case-evaluation .section-label-col', delay: '' },
     { selector: '#approach .section-label-col', delay: '' },
     { selector: '#practice-areas .section-label-col', delay: '' },
+    { selector: '#testimonials .section-label-col', delay: '' },
     { selector: '#contact .section-label-col', delay: '' },
   ];
 
