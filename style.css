@@ -413,24 +413,22 @@ address {
 }
 
 .hero-monogram {
-  display: none; /* Hide monogram for exact layout match */
-}
-
-.hero-sparkle {
   position: absolute;
   bottom: 56px;
   right: var(--gutter);
   z-index: 2;
-  width: 24px;
-  height: 24px;
-  color: rgba(255, 255, 255, 0.8);
-  opacity: 0.9;
-  animation: heroSparklePulse 3s ease-in-out infinite alternate;
+  width: 96px;
+  opacity: 0.22;
+  pointer-events: none;
+  transition: opacity var(--t-fast) var(--ease);
 }
 
-@keyframes heroSparklePulse {
-  0% { transform: scale(0.9) rotate(0deg); opacity: 0.65; }
-  100% { transform: scale(1.1) rotate(6deg); opacity: 0.95; }
+.hero-monogram:hover {
+  opacity: 0.45;
+}
+
+.hero-monogram img {
+  width: 100%;
 }
 
 @keyframes heroFadeUp {
@@ -1148,8 +1146,7 @@ address {
   }
 
   .hero-subtitle br { display: none; }
-  .hero-monogram { display: none; }
-  .hero-sparkle { width: 20px; height: 20px; right: var(--gutter); bottom: 40px; }
+  .hero-monogram { width: 70px; right: var(--gutter); bottom: 40px; display: block; }
 
   /* Attorney */
   .attorney-photo-wrap { max-width: 320px; }
