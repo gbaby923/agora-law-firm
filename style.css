@@ -352,10 +352,12 @@ address {
   position: absolute;
   inset: 0;
   background: 
-    /* Radial dark gradient from bottom-left quadrant for legibility of the massive left-aligned text */
-    radial-gradient(circle at 10% 90%, rgba(18, 22, 23, 0.88) 0%, rgba(18, 22, 23, 0.45) 55%, rgba(18, 22, 23, 0) 100%),
-    /* Linear overlay for desaturating the skies and blending slate greens / deep charcoal */
-    linear-gradient(to top, rgba(20, 24, 25, 0.5) 0%, rgba(20, 24, 25, 0.1) 60%, rgba(32, 38, 38, 0.3) 100%);
+    /* Left-to-right linear scrim behind the text for contrast */
+    linear-gradient(to right, rgba(13, 18, 20, 0.55) 0%, rgba(13, 18, 20, 0.22) 40%, rgba(13, 18, 20, 0) 75%),
+    /* Bottom-up linear scrim to anchor readability */
+    linear-gradient(to top, rgba(13, 18, 20, 0.5) 0%, rgba(13, 18, 20, 0) 50%),
+    /* Linear overlay to desaturate golden-hour yellows and oranges */
+    linear-gradient(to top, rgba(20, 24, 25, 0.2) 0%, rgba(32, 38, 38, 0.25) 100%);
   backdrop-filter: grayscale(32%) contrast(108%) brightness(95%);
   -webkit-backdrop-filter: grayscale(32%) contrast(108%) brightness(95%);
   pointer-events: none;
@@ -397,8 +399,20 @@ address {
   color: rgba(255, 255, 255, 0.88);
   line-height: 1.8;
   max-width: 440px;
-  margin-bottom: 48px;
+  margin-bottom: 16px;
   animation: heroFadeUp var(--t-slow) var(--ease-out) 0.30s both;
+}
+
+.hero-practice-line {
+  font-family: var(--font-sans);
+  font-size: clamp(9.5px, 1.2vw, 11px);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  animation: heroFadeUp var(--t-slow) var(--ease-out) 0.38s both;
 }
 
 .hero-cta {
