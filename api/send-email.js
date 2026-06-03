@@ -63,11 +63,32 @@ export default async function handler(req, res) {
       }),
     });
 
-    if (lawyerEmailResponse.ok && clientEmailResponse.ok) {
+    const lawyerStatus = lawyerEmailResponse.ok;
+    const clientStatus = clientEmailResponse.ok;
+
+    if (lawyerStatus && clientStatus) {
       return res.status(200).json({ message: 'Emails sent successfully' });
     } else {
-      const errorData = await lawyerEmailResponse.json();
-      return res.status(500).json({ error: 'Failed to send one or both emails', details: errorData });
+      let lawyerError = null;
+      let clientError = null;
+
+      if (!lawyerStatus) {
+        lawyerError = await lawyerEmailResponse.json();
+      }
+      if (!clientStatus) {
+        clientError = await clientEmailResponse.json();
+      }
+
+      console.error('Resend Error - Lawyer Email:', lawyerError);
+      console.error('Resend Error - Client Email:', clientError);
+
+      return res.status(500).json({
+        error: 'Failed to send one or both emails',
+        details: {
+          lawyerEmail: lawyerError,
+          clientEmail: clientError
+        }
+      });
     }
   } catch (error) {
     return res.status(500).json({ error: 'Internal Server Error', details: error.message });

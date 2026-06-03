@@ -248,7 +248,20 @@
           `;
         } else {
           const err = await response.json();
-          alert(`Error: ${err.error || 'Failed to submit form.'}`);
+          let errorMsg = err.error || 'Failed to send one or both emails.';
+          if (err.details) {
+            const detailsList = [];
+            if (err.details.lawyerEmail && err.details.lawyerEmail.message) {
+              detailsList.push(`Lawyer: ${err.details.lawyerEmail.message}`);
+            }
+            if (err.details.clientEmail && err.details.clientEmail.message) {
+              detailsList.push(`Client: ${err.details.clientEmail.message}`);
+            }
+            if (detailsList.length > 0) {
+              errorMsg += '\n\nDetails:\n' + detailsList.join('\n');
+            }
+          }
+          alert(`Error: ${errorMsg}`);
           submitBtn.textContent = originalText;
           submitBtn.disabled = false;
         }
