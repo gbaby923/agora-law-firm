@@ -865,7 +865,7 @@ address {
    ══════════════════════════════════════════════════ */
 
 #attorney {
-  background: var(--taupe);
+  background: var(--cream);
 }
 
 .attorney-grid {
@@ -949,7 +949,7 @@ address {
    ══════════════════════════════════════════════════ */
 
 #contact {
-  background: var(--cream);
+  background: var(--taupe);
 }
 
 .contact-grid {
