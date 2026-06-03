@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Agora Law Firm <inquiries@agoralawfirm.com>', // Must be a verified domain in Resend
+        from: 'Agora Law Firm <inquiries@mount-studio.com>', // Must be a verified domain in Resend
         to: 'hello@agoralawfirm.com',
         subject: `New Case Evaluation Request: ${name}`,
         html: `
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Shawn Roshan, Esq. <hello@agoralawfirm.com>', // Must be a verified domain in Resend
+        from: 'Shawn Roshan, Esq. <hello@mount-studio.com>', // Must be a verified domain in Resend
         to: email,
         subject: 'Thank you for reaching out to Agora Law Firm',
         html: `
