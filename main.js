@@ -212,4 +212,52 @@
 
   sections.forEach(sec => sectionObserver.observe(sec));
 
+  /* ── FORM SUBMISSION HANDLING ── */
+  const evalForm = document.getElementById('evaluation-form');
+
+  if (evalForm) {
+    evalForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = evalForm.querySelector('.btn-submit-eval');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'SENDING REQUEST...';
+      submitBtn.disabled = true;
+
+      const formData = {
+        name: document.getElementById('eval-name').value,
+        phone: document.getElementById('eval-phone').value,
+        email: document.getElementById('eval-email').value,
+        consultation_type: document.getElementById('eval-type').value,
+        details: document.getElementById('eval-details').value,
+      };
+
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          evalForm.innerHTML = `
+            <div class="form-success-message" style="padding: 24px 0; text-align: left; animation: heroFadeUp 0.6s var(--ease-out) both;">
+              <h3 style="font-family: var(--font-serif); font-size: 26px; color: var(--charcoal); margin-bottom: 12px;">Inquiry Initiated</h3>
+              <p style="font-family: var(--font-sans); font-size: 14.5px; color: rgba(26, 32, 34, 0.65); line-height: 1.8;">Thank you. A confirmation email has been sent to <strong>${formData.email}</strong>. We will review your details and contact you shortly.</p>
+            </div>
+          `;
+        } else {
+          const err = await response.json();
+          alert(`Error: ${err.error || 'Failed to submit form.'}`);
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        alert('There was an issue sending your request. Please try again.');
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
 })();
