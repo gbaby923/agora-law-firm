@@ -342,6 +342,7 @@ address {
 #hero {
   position: relative;
   height: 100vh;
+  height: 100dvh;
   min-height: 620px;
   background: url('tom-briskey-2lsYhRTlZR4-unsplash.jpg') center 35% / cover no-repeat;
   display: flex;
@@ -1090,6 +1091,16 @@ address {
     --section-pad: 88px;
   }
 
+  #hero {
+    min-height: 580px;
+    align-items: center;
+  }
+
+  .hero-content {
+    padding-top: var(--nav-h);
+    padding-bottom: 0;
+  }
+
   .attorney-grid {
     grid-template-columns: 280px 1fr;
     gap: 56px;
@@ -1171,8 +1182,14 @@ address {
   }
 
   /* Hero */
+  #hero {
+    min-height: 520px;
+    align-items: center;
+  }
+
   .hero-content {
-    padding: 0 var(--gutter) 80px;
+    padding: 0 var(--gutter);
+    padding-top: var(--nav-h);
     max-width: 100%;
   }
 
@@ -1220,3 +1237,41 @@ address {
     gap: 20px;
   }
 }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — Low Height Viewports (e.g. Mobile Landscape)
+   ══════════════════════════════════════════════════ */
+@media (max-height: 600px) {
+  #hero {
+    min-height: auto;
+    height: 100vh;
+    height: 100dvh;
+    align-items: center;
+  }
+
+  .hero-content {
+    padding-top: var(--nav-h);
+    padding-bottom: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 8vh, 64px);
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 13.5px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .hero-practice-line {
+    font-size: 9px;
+    margin-bottom: 20px;
+  }
+
+  .hero-cta {
+    padding: 10px 24px;
+  }
+}
+
