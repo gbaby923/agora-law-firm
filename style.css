@@ -342,7 +342,6 @@ address {
 #hero {
   position: relative;
   height: 100vh;
-  height: 100dvh;
   min-height: 620px;
   background: url('tom-briskey-2lsYhRTlZR4-unsplash.jpg') center 35% / cover no-repeat;
   display: flex;
@@ -1241,7 +1240,7 @@ address {
 /* ══════════════════════════════════════════════════
    RESPONSIVE — Low Height Viewports (e.g. Mobile Landscape)
    ══════════════════════════════════════════════════ */
-@media (max-height: 600px) {
+@media (max-height: 600px) and (max-width: 1024px) {
   #hero {
     min-height: auto;
     height: 100vh;
